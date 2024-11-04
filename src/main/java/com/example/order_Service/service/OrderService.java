@@ -25,7 +25,7 @@ public class OrderService {
         //place rest call to payment
 
 
-        payment.setAmount(order.getPrice());
+        payment.setAmount(order.getPrice()* order.getQty());
         HttpEntity<Payment> requestEntity = new HttpEntity<>(payment);
         Order savedOrder=orderRepo.save(order);
         payment.setOrderId(savedOrder.getId());
